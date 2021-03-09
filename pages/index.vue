@@ -1,22 +1,26 @@
 <template>
-  <div class="container mx-auto pt-32 font-mono">
+  <div class="container max-w-lg lg:max-w-3xl mx-auto p-4 pt-32 text-pink-900">
     <div
       v-for="biography in biographies.biographyCollection.items"
       :key="biography.biographyID"
     >
       <img
-        class="rounded-full h-64 w-64"
+        class="rounded-full h-32 w-32 md:h-48 md:w-48 my-6"
         :src="`${biography.bioImage.url}?f=face&fit=thumb&h=800&w=800`"
         :alt="biography.bioImage.title"
       />
-      <h1 class="text-5xl font-hairline">{{ biography.name }}</h1>
-      <h2 class="font-bold text-lg">{{ biography.currentRole }}</h2>
-      <p class="text-base italic text-gray-700">
+      <h1 class="text-2xl md:text-4xl uppercase mb-2">
+        {{ biography.name }}
+      </h1>
+      <h2 class="text-base font-bold tracking-normal mb-2 text-orange-900">
+        {{ biography.currentRole }}
+      </h2>
+      <p class="text-xs italic text-gray-700">
         {{ biography.academicQualifications }}
       </p>
-      <article class="text-lg my-10">
-        <!-- <div v-html="biography.description" /> -->
-      </article>
+      <!-- <article class="text-base my-10">
+        {{ biography.description }}
+      </article> -->
     </div>
   </div>
 </template>
