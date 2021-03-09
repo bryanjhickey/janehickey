@@ -1,23 +1,10 @@
 <template>
-  <div>
-    <global-alert />
-    <global-header />
+  <div class="bg-orange-100 h-screen">
     <Nuxt />
-    <global-footer />
   </div>
 </template>
 <script>
-import GlobalHeader from '~/components/global/GlobalHeader.vue'
-import GlobalFooter from '~/components/global/GlobalFooter.vue'
-import GlobalAlert from '~/components/global/GlobalAlert.vue'
-
-export default {
-  components: {
-    GlobalHeader,
-    GlobalFooter,
-    GlobalAlert,
-  },
-}
+export default {}
 </script>
 
 <style></style>

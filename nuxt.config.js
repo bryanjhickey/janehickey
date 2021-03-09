@@ -4,7 +4,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'innerwest',
+    title:
+      'Jane Hickey - Academic in Disability Studies involving Young People',
     htmlAttrs: {
       lang: 'en',
     },
