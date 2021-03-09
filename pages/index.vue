@@ -15,7 +15,7 @@
         {{ biography.academicQualifications }}
       </p>
       <article class="text-lg my-10">
-        <div v-html="biography.description" />
+        <!-- <div v-html="biography.description" /> -->
       </article>
     </div>
   </div>
