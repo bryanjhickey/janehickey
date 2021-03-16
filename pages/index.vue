@@ -18,16 +18,19 @@
       <p class="text-xs italic text-gray-700">
         {{ biography.academicQualifications }}
       </p>
-      <!-- <article class="text-base my-10">
-        {{ biography.description }}
-      </article> -->
+      <contentful-rich-text :rich-text-data="biography.description.json" />
     </div>
   </div>
 </template>
 
 <script>
 import { gql } from 'nuxt-graphql-request'
+import ContentfulRichText from '~/components/partials/typography/ContentfulRichText.vue'
+
 export default {
+  components: {
+    ContentfulRichText,
+  },
   async asyncData({ $graphql, params }) {
     const query = gql`
       query {
@@ -48,6 +51,8 @@ export default {
       }
     `
     const biographies = await $graphql.default.request(query)
+    // eslint-disable-next-line no-console
+    console.log(biographies)
     return { biographies }
   },
 }

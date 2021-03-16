@@ -11,7 +11,9 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@contentful/rich-text-types": "^14.1.2",
     "@nuxtjs/axios": "^5.12.5",
+    "contentful-rich-text-vue-renderer": "^2.0.1",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12"
   },
