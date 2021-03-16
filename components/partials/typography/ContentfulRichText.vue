@@ -1,5 +1,5 @@
 <template>
-  <article class="text-base my-10">
+  <article class="text-base my-4">
     <RichTextRenderer
       :document="richTextData"
       :node-renderers="renderNodes()"
@@ -11,6 +11,23 @@
 <script>
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import RichTextRenderer from 'contentful-rich-text-vue-renderer'
+
+// Example function to render an embedded entry in a RichText editor.
+// For instance, a <nuxt-link> link to an entry.
+//
+// const customEmbeddedEntry = (node, key, h) => {
+//   return h(
+//     'nuxt-link',
+//     {
+//       key,
+//       attrs: {
+//         to: node.data.target.sys.id,
+//         class: 'text-primary hover:underline',
+//       },
+//     },
+//     'CONTENT FOR <nuxt-link> COMPONENT'
+//   )
+// }
 
 export default {
   components: {
@@ -30,7 +47,7 @@ export default {
         [MARKS.BOLD]: (text, key, h) =>
           h('strong', { key, attrs: { class: 'font-bold' } }, text),
         [MARKS.ITALIC]: (text, key, h) =>
-          h('em', { key, attrs: { class: 'italic text-blue-700' } }, text),
+          h('em', { key, attrs: { class: 'italic' } }, text),
         [MARKS.UNDERLINE]: (text, key, h) =>
           h('span', { key, attrs: { class: 'underline' } }, text),
         [MARKS.CODE]: (text, key, h) =>
@@ -38,7 +55,10 @@ export default {
             'code',
             {
               key,
-              attrs: { class: 'block bg-grey-100 font-mono text-grey-700' },
+              attrs: {
+                class: '',
+                language: 'html',
+              },
             },
             text
           ),
@@ -136,42 +156,49 @@ export default {
             { key, attrs: { class: 'border-gray-700' } },
             next(node.content, key, h, next)
           ),
-        [BLOCKS.EMBEDDED_ENTRY]: (node, key, h, next) =>
-          h(
-            '',
-            { key, attrs: { class: '' } },
-            next(node.content, key, h, next)
-          ),
-        [BLOCKS.EMBEDDED_ASSET]: (node, key, h, next) =>
-          h(
-            '',
-            { key, attrs: { class: '' } },
-            next(node.content, key, h, next)
-          ),
-        [INLINES.EMBEDDED_ENTRY]: (node, key, h, next) =>
-          h(
-            '',
-            { key, attrs: { class: '' } },
-            next(node.content, key, h, next)
-          ),
+        // [BLOCKS.EMBEDDED_ENTRY]: (node, key, h, next) =>
+        //   h(
+        //     'div',
+        //     { key, attrs: { class: 'border-gray-300 border-2 p-2' } },
+        //     next(node.content, key, h, next)
+        //   ),
+        // [BLOCKS.EMBEDDED_ASSET]: (node, key, h, next) =>
+        //   h(
+        //     'img',
+        //     { key, attrs: { src: node.data.target.sys.id, class: '' } },
+        //     next(node.content, key, h, next)
+        //   ),
+        // [INLINES.EMBEDDED_ENTRY]: customEmbeddedEntry,
         [INLINES.HYPERLINK]: (node, key, h, next) =>
           h(
             'a',
-            { key, attrs: { class: 'text-primary hover:underline' } },
+            {
+              key,
+              attrs: {
+                href: node.data.uri,
+                class: 'text-orange-900 font-bold italic hover:underline',
+              },
+            },
             next(node.content, key, h, next)
           ),
-        [INLINES.ENTRY_HYPERLINK]: (node, key, h, next) =>
-          h(
-            'nuxt-link',
-            { key, attrs: { class: 'text-primary hover:underline' } },
-            next(node.content, key, h, next)
-          ),
-        [INLINES.ASSET_HYPERLINK]: (node, key, h, next) =>
-          h(
-            '',
-            { key, attrs: { class: 'text-green-200' } },
-            next(node.content, key, h, next)
-          ),
+        // [INLINES.ENTRY_HYPERLINK]: (node, key, h, next) =>
+        //   h(
+        //     'nuxt-link',
+        //     {
+        //       key,
+        //       attrs: {
+        //         to: node.data.target.sys.id,
+        //         class: 'text-primary hover:underline',
+        //       },
+        //     },
+        //     next(node.content, key, h, next)
+        //   ),
+        // [INLINES.ASSET_HYPERLINK]: (node, key, h, next) =>
+        //   h(
+        //     '',
+        //     { key, attrs: { class: 'text-green-200' } },
+        //     next(node.content, key, h, next)
+        //   ),
       }
     },
   },

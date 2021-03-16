@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-lg lg:max-w-3xl mx-auto p-4 pt-32 text-pink-900">
+  <div class="container max-w-lg lg:max-w-3xl mx-auto p-4 pt-32">
     <div
       v-for="biography in biographies.biographyCollection.items"
       :key="biography.biographyID"
