@@ -19,17 +19,27 @@
         {{ biography.academicQualifications }}
       </p>
       <contentful-rich-text :rich-text-data="biography.description.json" />
+      <a
+        href="https://www.linkedin.com/in/janemhickey/"
+        target="_blank"
+        rel="noreferrer"
+        class="font-bold text-orange-900 hover:text-primary"
+        ><linkedin-icon class="w-4 h-4 inline -mt-1 fill-current" /> Connect on
+        Linked</a
+      >
     </div>
   </div>
 </template>
 
 <script>
 import { gql } from 'nuxt-graphql-request'
+import LinkedinIcon from '@/assets/linkedin-logo.svg?inline'
 import ContentfulRichText from '~/components/partials/typography/ContentfulRichText.vue'
 
 export default {
   components: {
     ContentfulRichText,
+    LinkedinIcon,
   },
   async asyncData({ $graphql, params }) {
     const query = gql`

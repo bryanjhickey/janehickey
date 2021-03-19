@@ -12,23 +12,6 @@
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import RichTextRenderer from 'contentful-rich-text-vue-renderer'
 
-// Example function to render an embedded entry in a RichText editor.
-// For instance, a <nuxt-link> link to an entry.
-//
-// const customEmbeddedEntry = (node, key, h) => {
-//   return h(
-//     'nuxt-link',
-//     {
-//       key,
-//       attrs: {
-//         to: node.data.target.sys.id,
-//         class: 'text-primary hover:underline',
-//       },
-//     },
-//     'CONTENT FOR <nuxt-link> COMPONENT'
-//   )
-// }
-
 export default {
   components: {
     RichTextRenderer,
@@ -134,10 +117,6 @@ export default {
             next(node.content, key, h, next)
           )
         },
-        // Example from https://github.com/contentful/rich-text/issues/88#issuecomment-484084643
-        // Trying to return only li not li>p
-        //
-
         [BLOCKS.QUOTE]: (node, key, h, next) =>
           h(
             'blockquote',
@@ -176,7 +155,7 @@ export default {
               key,
               attrs: {
                 href: node.data.uri,
-                class: 'text-orange-900 font-bold italic hover:underline',
+                class: 'text-orange-900 hover:text-primary font-bold italic',
               },
             },
             next(node.content, key, h, next)

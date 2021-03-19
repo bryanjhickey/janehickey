@@ -1,5 +1,5 @@
 {
-  "name": "innerwest",
+  "name": "janehickey",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,14 @@
   "dependencies": {
     "@contentful/rich-text-types": "^14.1.2",
     "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg": "^0.1.12",
     "contentful-rich-text-vue-renderer": "^2.0.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "git": "^0.1.5",
+    "nuxt": "^2.14.12",
+    "vue-content-placeholders": "^0.2.1",
+    "vue-observe-visibility": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

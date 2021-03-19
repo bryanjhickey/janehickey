@@ -12,16 +12,24 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Jane Hickey is an Academic Lecturer with Victoria University. Jane is a PhD candidate currently researching the experiences of students with hidden disability in post compulsory education.',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/vue-placeholders.js',
+    '~/plugins/vue-observe-visibility.client.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,6 +56,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://www.npmjs.com/package/nuxt-graphql-request
     'nuxt-graphql-request',
+    '@nuxtjs/svg',
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
