@@ -19,7 +19,7 @@ export default {
           'Jane Hickey is an Academic Lecturer with Victoria University. Jane is a PhD candidate currently researching the experiences of students with hidden disability in post compulsory education.',
       },
     ],
-    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
