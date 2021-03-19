@@ -25,7 +25,7 @@
         rel="noreferrer"
         class="font-bold text-orange-900 hover:text-primary"
         ><linkedin-icon class="w-4 h-4 inline -mt-1 fill-current" /> Connect on
-        Linked</a
+        LinkedIn</a
       >
     </div>
   </div>
