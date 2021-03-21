@@ -103,20 +103,20 @@ export default {
             { key, attrs: { class: '' } },
             next(node.content, key, h, next)
           ),
-        [BLOCKS.LIST_ITEM]: (node, key, h, next) => {
-          node.content = node.content
-            .map((listItemNode) =>
-              listItemNode.nodeType === BLOCKS.PARAGRAPH
-                ? listItemNode.content
-                : listItemNode
-            )
-            .flat()
-          return h(
-            'li',
-            { key, attrs: { class: 'list-disc list-inside ml-8' } },
-            next(node.content, key, h, next)
-          )
-        },
+        // [BLOCKS.LIST_ITEM]: (node, key, h, next) => {
+        //   node.content = node.content
+        //     .map((listItemNode) =>
+        //       listItemNode.nodeType === BLOCKS.PARAGRAPH
+        //         ? listItemNode.content
+        //         : listItemNode
+        //     )
+        //     .flat()
+        //   return h(
+        //     'li',
+        //     { key, attrs: { class: 'list-disc list-inside ml-8' } },
+        //     next(node.content, key, h, next)
+        //   )
+        // },
         [BLOCKS.QUOTE]: (node, key, h, next) =>
           h(
             'blockquote',
